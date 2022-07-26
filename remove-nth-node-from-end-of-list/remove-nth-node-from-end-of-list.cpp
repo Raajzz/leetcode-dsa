@@ -11,6 +11,7 @@
 class Solution {
 public:
     ListNode* removeNthFromEnd(ListNode* head, int n) {
+        // two pass method
         ListNode* ptr_1 = head;
         ListNode* ptr_2 = head;
         int counter = 1;
