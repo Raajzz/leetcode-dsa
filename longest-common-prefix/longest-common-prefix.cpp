@@ -2,6 +2,10 @@ class Solution {
 public:
     string longestCommonPrefix(vector<string>& strs) {
         
+        // brute forced approach as the constraints are pretty small
+        
+        // reference: https://codeforces.com/blog/entry/21344
+        
         string res_string = "";
         int strs_size = strs.size();
         int min_size = 200;
