@@ -3,6 +3,8 @@ public:
     int strStr(string haystack, string needle) {
         // needle should be lesser
         // haystack should be larger
+        
+        // using z algorithm
         if(needle.size() == 0){
             return 0;
         }
