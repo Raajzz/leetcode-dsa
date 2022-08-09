@@ -1,6 +1,7 @@
 class Solution {
 public:
     int maxProfit(vector<int>& prices) {
+        // approach 1
         int low = 0;
         int high = 1;
         int profit = 0;
