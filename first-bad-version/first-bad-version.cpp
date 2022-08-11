@@ -24,14 +24,6 @@ public:
                 mid = mid_function(min, max);
             }
         }
-        // if(!isBadVersion(mid)){
-        //     min = mid + 1;
-        //     mid = mid_function(min, max);
-        // } else {
-        //     if(mid == 1 || !isBadVersion(mid - 1)){
-        //         return mid;
-        //     }
-        // }
         return mid;
     }
 };
