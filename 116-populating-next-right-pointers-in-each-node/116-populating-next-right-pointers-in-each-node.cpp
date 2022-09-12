@@ -19,21 +19,22 @@ public:
 class Solution {
 public:
     void nodeConnector(Node* root){
-        if(root != nullptr){
-            if(root->left != nullptr && root->right != nullptr){
-                root->left->next = root->right;
-                if(root->next != nullptr){
-                    root->right->next = root->next->left;
-                } else {
-                    root->right->next = nullptr;
-                }
+        if(root->left != nullptr && root->right != nullptr){
+            root->left->next = root->right;
+            if(root->next != nullptr){
+                root->right->next = root->next->left;
+            } else {
+                root->right->next = nullptr;
             }
             nodeConnector(root->left);
-            nodeConnector(root->right);   
-        }
+            nodeConnector(root->right);
+        }   
     }
     
     Node* connect(Node* root) {
+        if(root == nullptr){
+            return root;
+        }
         nodeConnector(root);
         return root;
     }
