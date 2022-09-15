@@ -12,7 +12,7 @@
 class Solution {
 public:
     
-//     brute forced O(N) time and O(N) space approach - works
+//     brute forced O(N) time and O(N) space approach + O(N) for the stack space or the call stack size - works
 //     void getElements(TreeNode* root, vector<int> &elements){
 //         if(root != nullptr){
 //             getElements(root->left, elements);
@@ -28,7 +28,7 @@ public:
 //     }
     
 //     optimal method - O(N) time, usage of an external counter while doing inorder 
-//     traversal
+//     traversal - But since we're using recursion, the stack size will come into picture.
     
     void getNumber(TreeNode* root, int pos, int &counter, int &res, bool &isFound){
         if(root != nullptr && !isFound){
@@ -52,4 +52,5 @@ public:
         return res;
     }
     
+    // more optimal way is to use morris traversal and then include the logic given here, it'll produce a O(N) time algo with O(1) space complexity. 
 };
