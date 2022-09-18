@@ -1,6 +1,23 @@
 class Solution {
 public:
-//     My version for DFS causing some stack-overflow error which means therer's an infinite recursion issue.
+//     My version for DFS causing some stack-overflow error which means therer's an infinite recursion issue. Yup, I know why now. I'm so dumb.
+
+/*
+
+              -1 0
+                -
+                -
+                -
+    0 -1 <---> 0 0 <---> 0 +1
+                -
+                -
+                -
+              +1 0 
+              
+    The below version you have provided is directly checking the corners and NOT THE TOP, BOTTOM, LEFT and RIGHT element.
+
+*/
+    
 //     void filler(vector<vector<int>> &image, int sr, int sc, vector<vector<bool>> &isVisited, int color, int m, int n){
 //         if(isVisited[sr][sc]){
 //             if(sr-1 >= 0 && sc-1>=0 && image[sr-1][sc-1] == image[sr][sc]){
