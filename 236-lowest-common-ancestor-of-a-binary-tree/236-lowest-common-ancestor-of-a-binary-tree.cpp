@@ -19,7 +19,11 @@ public:
             our lowest common ancestor
             - Time complexity is O(N) + O(N) + O(N)
             - Space Complexity is O(N) + O(N)
-        2. 
+        2. Do a regular DFS (Postorder) traversal (because with postorder traversal we would've
+           traversed both left and right part). After doing which if we had both left and right nodes
+           then that root is the lowest common ancestor so we return it, but if we had only one either
+           left or right, no issue, just return that which is not null, if both are null then return 
+           the null, the postorder logic works because of the fact that we have to return null anyway.
         */
         
         if(root == nullptr){
