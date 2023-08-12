@@ -5,7 +5,7 @@
 - If the number is an even number, the number of bits of that number `n` would be the same as `n/2`
 - Example,
 ```
-5 = 0110
+5 = 0101
 10 = 1010
 or
 12 = 1100
