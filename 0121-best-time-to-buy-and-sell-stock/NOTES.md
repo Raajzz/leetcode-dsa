@@ -1,1 +1,1 @@
-​
+- The idea for this code is basically keeping track of the maximum value till the current index and checking whether the maximum value minux the current index is providing you the bigger profit. If it does provide you the bigger profit then update the profit variable to `max(maxPrice - prices[i], profit)`.
