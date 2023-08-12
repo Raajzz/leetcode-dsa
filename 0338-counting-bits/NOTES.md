@@ -21,8 +21,4 @@ This is because, performing a left shift over a number would put a zero at the l
 - And adding one to an even number (thereby making it odd) would add a single `1` to the LSB of the previous even number.
 - Therefore, the `number of bits of an odd number` would be `number of bits of even number + 1`
 ​
-Special thanks to [SURE7's](https://leetcode.com/SURE7/) [solution](https://leetcode.com/problems/counting-bits/discuss/800456/C%2B%2B-or-Counting-Bits-or-O(N)-Explanation). I just wanted to provide a bit more elaborate explanation.
-​
-```c++
-​
-```
+Special thanks to [SURE7's](https://leetcode.com/SURE7/) solution (https://leetcode.com/problems/counting-bits/discuss/800456/C%2B%2B-or-Counting-Bits-or-O(N)-Explanation). I just wanted to provide a bit more elaborate explanation.
