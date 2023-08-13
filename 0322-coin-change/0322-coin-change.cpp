@@ -19,9 +19,35 @@ public:
         }
         return dp[index][target] = min(take, notTake);
     }
+    
+    int tabulation(vector<int> &coins, int target){
+        vector<vector<int>> dp(coins.size(), vector<int>(target + 1, 0));
+        
+        for(int i=0; i<=target; i++){
+            if(i % coins[0] == 0){
+                dp[0][i] = i / coins[0];
+            } else {
+                dp[0][i] = 1e9;
+            }
+        }
+        
+        for(int index=1; index<coins.size(); index++){
+            for(int currTarget = 0; currTarget <= target; currTarget++){                
+                int notTake = 0 + dp[index-1][currTarget];
+                int take = 1e9;
+                if(coins[index] <= currTarget){
+                    take = 1 + dp[index][currTarget - coins[index]];
+                }
+                dp[index][currTarget] = min(take, notTake);
+            }
+        }
+        
+        return dp[coins.size() - 1][target];
+        
+    }
+    
     int coinChange(vector<int>& coins, int target) {
-        vector<vector<int>> dp(coins.size(), vector<int>(target+1, -1));
-        int result = recursion(coins, target, coins.size() - 1, dp);
+        int result = tabulation(coins, target);
         if(result >= 1e9){
             return -1;
         }
