@@ -1,0 +1,2 @@
+- We'll be using a sliding window approach. Here, we'll be having a pointer to the beginning of the window and to the end of the window (denoted by `i`  and `j`) and we'll move this i and j according to different conditions.
+-
