@@ -1,1 +1,3 @@
-​
+- Snowball approach.
+- Here, we consider the number of occurance of zero as we encounter zeros. Once we encounter a non-zero element, we know that this element belongs to the start of our zero segment of the array. Then we put the current zero element to the beginning of the zero-segment and then mark the current index to be zero.
+- And we continue.
