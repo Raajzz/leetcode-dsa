@@ -17,8 +17,33 @@ public:
         }
         return dp[index][amount] = notTake + take;
     }
+    
+    int tabulation(int amount, vector<int> &coins){
+        vector<vector<int>> dp(coins.size(), vector<int>(amount + 1, 0));
+        
+        for(int i=0; i<=amount; i++){
+            if(i % coins[0] == 0){
+                dp[0][i] = 1;
+            } else {
+                dp[0][i] = 0;
+            }
+        }
+        
+        for(int index=1; index<coins.size(); index++){
+            for(int currAmount = 0; currAmount <= amount; currAmount++){
+                int notTake = dp[index - 1][currAmount];
+                int take = 0;
+                if(currAmount >= coins[index]){
+                    take = dp[index][currAmount - coins[index]];
+                }
+                dp[index][currAmount] = notTake + take;
+            }
+        }
+        
+        return dp[coins.size() - 1][amount];
+    }
+    
     int change(int amount, vector<int>& coins) {
-        vector<vector<int>> dp(coins.size(), vector<int>(amount + 1, -1));
-        return recursion(coins.size() - 1, amount, coins, dp);
+        return tabulation(amount, coins);
     }
 };
