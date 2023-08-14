@@ -1,1 +1,1 @@
-​
+- Start looking from the end. Once you realize a single index has an odd number, the whole string starting from 0 till that index is the largest odd number possible, therefore.
