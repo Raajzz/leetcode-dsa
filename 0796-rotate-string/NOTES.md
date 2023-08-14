@@ -1,1 +1,7 @@
-​
+- The approaches provided in LeetCode solutions are potentially solutions where we're asked to build a string of `A + A` and then check `goal` in the combined `A + A` string.
+- This works because, you're doing a right rotation, that means the leftmost elments will be the end of `A` and append the rotated part of the string to the beginning to construct the acutal string.
+- Now, we basically have a problem of string search.
+- Brute Force: O(N ^ 2) [T] | O(1) [S]
+- Rolling Hash: O(N) [T] | O(N) [S]
+- KMP: O(N) [T] | O(N) [S]
+- Read [this](https://leetcode.com/problems/rotate-string/discuss/678931/Best-Solution-for-an-Interview-Java-Thoughts-and-takeaways) to get more insights into the problems,
