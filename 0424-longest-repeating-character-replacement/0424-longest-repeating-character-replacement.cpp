@@ -5,12 +5,10 @@ public:
         int left = 0;
         int right = 0;
         int res = INT_MIN;
+        int mostFreq = 0;
         while(right < s.size()){
             frequencyMap[s[right] - 'A']++;
-            int mostFreq = 0;
-            for(int i=0; i<frequencyMap.size(); i++){
-                mostFreq = max(mostFreq, frequencyMap[i]);
-            }
+            mostFreq = max(mostFreq, frequencyMap[s[right] - 'A']);
             if(right - left + 1 - mostFreq <= k){
                 res = max(res, right - left + 1);
             } else {
