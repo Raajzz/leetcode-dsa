@@ -4,18 +4,18 @@ public:
         unordered_map<int,int> mp;
         int currTime = 0;
         int maxTaskTime = INT_MIN;
+        int maxTaskWorker = INT_MAX;
         for(auto vec: logs){
             int taskTime = vec[1] - currTime;
-            maxTaskTime = max(maxTaskTime, taskTime);
-            if(mp.find(taskTime) == mp.end()){
-                mp.insert(make_pair(taskTime, vec[0]));
-            } else {
-                if(mp[taskTime] > vec[0]){
-                    mp[taskTime] = vec[0];
-                }
+            if(taskTime > maxTaskTime){
+                maxTaskTime = taskTime;
+                maxTaskWorker = vec[0];
+            } else if (taskTime == maxTaskTime){
+                maxTaskTime = taskTime;
+                maxTaskWorker = min(maxTaskWorker, vec[0]);
             }
             currTime = vec[1];
         }
-        return mp[maxTaskTime];
+        return maxTaskWorker;
     }
 };
