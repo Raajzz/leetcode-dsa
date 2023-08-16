@@ -1,5 +1,21 @@
 class Solution {
 public:
+    int uniqueRecur(vector<vector<int>> &grid, int m, int n, vector<vector<int>> &dp){
+        if(m < 0 || n < 0){
+            return 0;
+        }
+        if(grid[m][n] == 1){
+            return 0;
+        }
+        if(m == 0 && n == 0){
+            return 1;
+        }
+        if(dp[m][n]){
+            return dp[m][n];
+        }
+        return dp[m][n] = uniqueRecur(grid, m-1, n, dp) + uniqueRecur(grid, m, n-1, dp);
+    }
+
     int tabulation(vector<vector<int>> &obstacleGrid){
         vector<vector<int>> dp(obstacleGrid.size() + 1, vector<int>(obstacleGrid[0].size() + 1, 0));
         dp[1][1] = 1;
