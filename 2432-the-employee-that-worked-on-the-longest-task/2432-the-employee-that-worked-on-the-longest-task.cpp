@@ -11,7 +11,6 @@ public:
                 mp.insert(make_pair(taskTime, vec[0]));
             } else {
                 if(mp[taskTime] > vec[0]){
-                    cout << taskTime << " " << vec[0] << "\n";
                     mp[taskTime] = vec[0];
                 }
             }
