@@ -1,0 +1,7 @@
+- Usually, while applying binary search, the algorithm works because the left half and the right half is sorted. But in this problem, one half has the potential to be not sorted.
+- Steps to solve this problem.
+- Identify the sorted half.
+- By comparing the `mid` and `low` or `high`.
+- Check the target in the sorted half by comparing the bound values
+- If they're inside the bound values then shrink the necessary bounds to that side.
+- Else, shrink it to the other side.
