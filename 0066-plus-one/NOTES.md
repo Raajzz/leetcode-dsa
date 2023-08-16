@@ -1,0 +1,2 @@
+- We're starting from the end and then we're moving one by one to the right. If we encounter a 9 then we make that indexed value a 0 and then we move to the other index. If the `index - 1` somewhere less than 9 then we just increment that and then we return the vector.
+- But let's say that we have a case like this `9999...9`, then we just push_back a 0 to the end and make the first element to be a 1
