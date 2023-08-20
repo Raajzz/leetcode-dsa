@@ -23,7 +23,6 @@ public:
             for(int j = 0; j<vec[i].size(); j++){
                 s[z++] = vec[i][j];
             }
-            cout << " ";
         }
         return s;
     }
