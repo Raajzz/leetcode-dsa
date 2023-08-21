@@ -11,7 +11,7 @@
  */
 class Solution {
 public:
-    bool hasPathSumRecur(TreeNode* root, int targetSum) {
+    bool hasPathSum(TreeNode* root, int targetSum){
         if(!root){
             return false;
         }
@@ -22,13 +22,6 @@ public:
            return true;
         }
         
-        return hasPathSumRecur(root->left, newTargetSum) || hasPathSumRecur(root->right, newTargetSum);
-    }
-    
-    bool hasPathSum(TreeNode* root, int targetSum){
-        if(!root){
-            return false;
-        }
-        return hasPathSumRecur(root, targetSum);
+        return hasPathSum(root->left, newTargetSum) || hasPathSum(root->right, newTargetSum);
     }
 };
