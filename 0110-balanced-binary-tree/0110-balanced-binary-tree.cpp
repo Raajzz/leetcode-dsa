@@ -11,20 +11,27 @@
  */
 class Solution {
 public:
-    int checkHeightBalance(TreeNode* root, bool &balanceFlag){
+    int checkHeightBalance(TreeNode* root){
         if(root == nullptr){
             return 0;
         }
-        int leftHeight = checkHeightBalance(root->left, balanceFlag);
-        int rightHeight = checkHeightBalance(root->right, balanceFlag);
+        int leftHeight = checkHeightBalance(root->left);
+        if(leftHeight == -1){
+            return -1;
+        }
+        int rightHeight = checkHeightBalance(root->right);
+        if(rightHeight == -1){
+            return -1;
+        }
         if(abs(leftHeight - rightHeight) > 1){
-            balanceFlag = false;
+            return -1;
         }
         return 1 + max(leftHeight, rightHeight);
     }
     bool isBalanced(TreeNode* root) {
-        bool balanceFlag = true;
-        checkHeightBalance(root, balanceFlag);
-        return balanceFlag;
+        if(checkHeightBalance(root) == -1){
+            return false;
+        };
+        return true;
     }
 };
