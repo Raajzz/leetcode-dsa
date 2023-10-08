@@ -7,31 +7,39 @@ using namespace std;
 class Solution {
 	public:
 	//Function to return list containing vertices in Topological order. 
-	void dfs(int node, vector<int> adj[], vector<bool> &isVisited, stack<int> &st){
-        isVisited[node] = true;
-        for(auto element: adj[node]){
-    	    if(isVisited[element] == false){
-                dfs(element, adj, isVisited, st);
-    	    }
-        }
-        st.push(node);
-	}
 	vector<int> topoSort(int V, vector<int> adj[]) {
 	    
-	    stack<int> st;
-	    vector<bool> isVisited(V, false);
-	    vector<int> res;
+	    // calculate the indegrees
+	    vector<int> indegrees(V, 0);
 	    for(int i=0; i<V; i++){
-	        if(isVisited[i] == false){
-	            dfs(i, adj, isVisited, st);
+	        for(auto val: adj[i]){
+	            indegrees[val]++;
 	        }
 	    }
 	    
-	    while(!st.empty()){
-	        res.push_back(st.top()); st.pop();   
+	    queue<int> que;
+	    
+	    for(int i=0; i<V; i++){
+	        if(indegrees[i] == 0){
+	            que.push(i);
+	        }
+	    }
+	    
+	    vector<int> res;
+	    
+	    while(!que.empty()){
+	        int node = que.front(); que.pop();
+	        res.push_back(node);
+	        for(auto element: adj[node]){
+	            indegrees[element]--;
+	            if(indegrees[element] == 0){
+	                que.push(element);
+	            }
+	        }
 	    }
 	    
 	    return res;
+	    
 	}
 };
 
